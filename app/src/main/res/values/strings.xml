@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Racket Selector App</string>
+
+    <!-- Form Screen -->
+    <string name="welcome">Bienvenue !</string>
+    <string name="enter_name">Veuillez saisir votre prénom :</string>
+    <string name="name">Prénom</string>
+    <string name="enter_age">Veuillez saisir votre âge :</string>
+    <string name="age">Age</string>
+    <string name="are_you">Etes-vous…</string>
+    <string name="male">Un homme</string>
+    <string name="female">Une femme</string>
+    <string name="other">Autre</string>
+    <string name="enter_size">Veuillez saisir votre taille en cm :</string>
+    <string name="size">Taille</string>
+    <string name="validate">Valider</string>
+
+    <!-- Process Screens -->
+    <string name="beginning">Prenez la raquette et suivez les instructions</string>
+    <string name="serve">Pour commencer, veuillez effectuer 3 services</string>
+    <string name="forehand">Veuillez effectuer 3 coups droits</string>
+    <string name="smash">Veuillez effectuer 3 smashes</string>
+    <string name="backhand">Pour finir, veuillez effectuer 3 revers</string>
+    <string name="when_finished">Une fois terminé, appuyez sur "suivant"</string>
+    <string name="next">Suivant</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
