@@ -1,8 +1,9 @@
 package fr.isen.racketselectorapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
 
 class FormActivity : AppCompatActivity() {
@@ -16,11 +17,22 @@ class FormActivity : AppCompatActivity() {
         validationClick()
     }
 
-    fun validationClick() {
+    private fun validationClick() {
         binding.validateDataButton.setOnClickListener {
-            val intent = Intent(this, ProcessActivity::class.java)
-            startActivity(intent)
-            finish()
+            if (checkInfo()) {
+                val intent = Intent(this, ProcessActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, R.string.form_incomplete, Toast.LENGTH_LONG).show()
+            }
         }
+    }
+
+    private fun checkInfo(): Boolean {
+        return binding.enterNameInput.toString().isNotEmpty() &&
+                binding.enterAgeInput.toString().isNotEmpty() &&
+                (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
+                binding.enterSizeInput.toString().isNotEmpty()
     }
 }

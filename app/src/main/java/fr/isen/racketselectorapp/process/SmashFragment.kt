@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import fr.isen.racketselectorapp.ProcessActivityInteraction
-import fr.isen.racketselectorapp.databinding.FragmentStartBinding
+import fr.isen.racketselectorapp.databinding.FragmentSmashBinding
 
-class StartFragment : Fragment() {
-    private lateinit var binding: FragmentStartBinding
+class SmashFragment : Fragment() {
+    private lateinit var binding: FragmentSmashBinding
     private lateinit var interactor: ProcessActivityInteraction
 
     override fun onAttach(context: Context) {
@@ -22,15 +22,15 @@ class StartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentStartBinding.inflate(inflater, container, false)
+        binding = FragmentSmashBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.beginStartButton.setOnClickListener {
-            interactor.showNextStep(ServeFragment())
+        binding.nextSmashButton.setOnClickListener {
+            interactor.showNextStep(BackhandFragment())
         }
     }
 }

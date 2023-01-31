@@ -10,8 +10,8 @@ import fr.isen.racketselectorapp.ProcessActivityInteraction
 import fr.isen.racketselectorapp.databinding.FragmentServeBinding
 
 class ServeFragment : Fragment() {
-    lateinit var binding: FragmentServeBinding
-    lateinit var interactor: ProcessActivityInteraction
+    private lateinit var binding: FragmentServeBinding
+    private lateinit var interactor: ProcessActivityInteraction
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

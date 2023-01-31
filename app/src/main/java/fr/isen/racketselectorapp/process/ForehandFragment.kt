@@ -10,8 +10,8 @@ import fr.isen.racketselectorapp.ProcessActivityInteraction
 import fr.isen.racketselectorapp.databinding.FragmentForehandBinding
 
 class ForehandFragment : Fragment() {
-    lateinit var binding: FragmentForehandBinding
-    lateinit var interactor: ProcessActivityInteraction
+    private lateinit var binding: FragmentForehandBinding
+    private lateinit var interactor: ProcessActivityInteraction
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -29,5 +29,8 @@ class ForehandFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.nextForehandButton.setOnClickListener {
+            interactor.showNextStep(SmashFragment())
+        }
     }
 }

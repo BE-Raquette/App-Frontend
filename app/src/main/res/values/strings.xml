@@ -15,15 +15,19 @@
     <string name="size">Taille</string>
     <string name="validate">Valider</string>
 
+    <string name="form_incomplete">Veuillez compléter tous les champs avant de valider</string>
+
     <!-- Process Screens -->
-    <string name="beginning">Prenez la raquette et suivez les instructions</string>
+    <string name="follow_instructions">Prenez la raquette et suivez les instructions</string>
     <string name="serve">Pour commencer, veuillez effectuer 3 services</string>
     <string name="forehand">Veuillez effectuer 3 coups droits</string>
     <string name="smash">Veuillez effectuer 3 smashes</string>
     <string name="backhand">Pour finir, veuillez effectuer 3 revers</string>
-    <string name="when_finished">Une fois terminé, appuyez sur "suivant"</string>
+    <string name="when_done">Une fois terminé, appuyez sur "suivant"</string>
+    <string name="when_finished">Une fois terminé, appuyez sur "terminer"</string>
+
+    <string name="begin">Commencer</string>
     <string name="next">Suivant</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="finish">Terminer</string>
 
 </resources>
