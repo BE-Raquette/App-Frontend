@@ -2,15 +2,30 @@
     <!-- Base application theme. -->
     <style name="Theme.RacketSelectorApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/light_grey</item>
+        <item name="colorPrimaryVariant">@color/light_grey</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/yellow</item>
+        <item name="colorSecondaryVariant">@color/yellow</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/dark_grey</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:navigationBarColor">@color/dark_grey</item>
+
+        <item name="android:background">@color/dark_grey</item>
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+
+    <style name="title">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
     </style>
 </resources>

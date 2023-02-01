@@ -30,4 +30,10 @@
     <string name="next">Suivant</string>
     <string name="finish">Terminer</string>
 
+    <!-- Recap Screen -->
+    <string name="hello">Bonjour</string>
+    <string name="statistics_available">Vos statistiques de jeu sont disponibles</string>
+    <string name="go_to_statistics">Accéder à vos statistiques</string>
+    <string name="image">image</string>
+
 </resources>

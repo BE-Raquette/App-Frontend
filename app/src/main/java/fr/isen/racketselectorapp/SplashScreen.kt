@@ -18,15 +18,10 @@ class SplashScreen : AppCompatActivity() {
         binding = SplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, FormActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 2000)
     }
 }

@@ -21,6 +21,7 @@ class FormActivity : AppCompatActivity() {
         binding.validateDataButton.setOnClickListener {
             if (checkInfo()) {
                 val intent = Intent(this, ProcessActivity::class.java)
+                intent.putExtra(USER_DATA, saveUserData())
                 startActivity(intent)
                 finish()
             } else {
@@ -34,5 +35,30 @@ class FormActivity : AppCompatActivity() {
                 binding.enterAgeInput.toString().isNotEmpty() &&
                 (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
                 binding.enterSizeInput.toString().isNotEmpty()
+    }
+
+    private fun saveUserData(): UserData {
+        val name: String = binding.enterNameInput.text.toString()
+        val age: Int = binding.enterAgeInput.text.toString().toInt()
+        val genre: String = when (binding.radioGroup.checkedRadioButtonId) {
+            binding.maleButton.id -> "male"
+            binding.femaleButton.id -> "female"
+            binding.otherButton.id -> "other"
+            else -> ""
+        }
+        val size: Int = binding.enterSizeInput.text.toString().toInt()
+
+        val userData = UserData()
+
+        userData.setName(name)
+        userData.setAge(age)
+        userData.setGenre(genre)
+        userData.setSize(size)
+
+        return userData
+    }
+
+    companion object {
+        const val USER_DATA = "USER_DATA"
     }
 }
