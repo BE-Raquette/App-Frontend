@@ -2,12 +2,18 @@ package fr.isen.racketselectorapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
+import org.json.JSONObject
 
 class FormActivity : AppCompatActivity() {
-    lateinit var binding: ActivityFormBinding
+    private lateinit var binding: ActivityFormBinding
+    private var userData = UserData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +26,9 @@ class FormActivity : AppCompatActivity() {
     private fun validationClick() {
         binding.validateDataButton.setOnClickListener {
             if (checkInfo()) {
+                saveUserData()
                 val intent = Intent(this, ProcessActivity::class.java)
-                intent.putExtra(USER_DATA, saveUserData())
+                intent.putExtra(USER_DATA, userData)
                 startActivity(intent)
                 finish()
             } else {
@@ -31,34 +38,65 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun checkInfo(): Boolean {
-        return binding.enterNameInput.toString().isNotEmpty() &&
-                binding.enterAgeInput.toString().isNotEmpty() &&
-                (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
-                binding.enterSizeInput.toString().isNotEmpty()
+        return (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
+            binding.enterNameInput.text?.isNotEmpty() == true &&
+            binding.enterAgeInput.text?.isNotEmpty() == true &&
+            binding.enterHeightInput.text?.isNotEmpty() == true &&
+            binding.enterWeightInput.text?.isNotEmpty() == true
     }
 
-    private fun saveUserData(): UserData {
+    private fun saveUserData() {
         val name: String = binding.enterNameInput.text.toString()
         val age: Int = binding.enterAgeInput.text.toString().toInt()
-        val genre: String = when (binding.radioGroup.checkedRadioButtonId) {
+        val gender: String = when (binding.genderList.checkedRadioButtonId) {
             binding.maleButton.id -> "male"
             binding.femaleButton.id -> "female"
             binding.otherButton.id -> "other"
             else -> ""
         }
-        val size: Int = binding.enterSizeInput.text.toString().toInt()
-
-        val userData = UserData()
+        val height: Int = binding.enterHeightInput.text.toString().toInt()
+        val weight: Int = binding.enterWeightInput.text.toString().toInt()
 
         userData.setName(name)
         userData.setAge(age)
-        userData.setGenre(genre)
-        userData.setSize(size)
+        userData.setGender(gender)
+        userData.setHeight(height)
+        userData.setWeight(weight)
 
-        return userData
+        postUserDataRequest()
+    }
+
+    private fun postUserDataRequest() {
+        val queue = Volley.newRequestQueue(this)
+        val url = ApiRoutes.BASE_URL + ApiRoutes.POST_USER
+
+        val parameters = JSONObject()
+        parameters.put(KEY_AGE, userData.getAge())
+        parameters.put(KEY_GENDER, userData.getGender())
+        parameters.put(KEY_HEIGHT, userData.getHeight())
+        parameters.put(KEY_WEIGHT, userData.getWeight())
+
+        val request = JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            parameters,
+            {
+                Log.d("post request", it.toString(2))
+                userData.setSessionId(it.getString("session_id")) // doesn't work for the moment
+            },
+            {
+                Log.d("post request", it.toString())
+            }
+        )
+        queue.add(request)
     }
 
     companion object {
         const val USER_DATA = "USER_DATA"
+
+        const val KEY_AGE = "age"
+        const val KEY_GENDER = "gender"
+        const val KEY_HEIGHT = "height"
+        const val KEY_WEIGHT = "weight"
     }
 }

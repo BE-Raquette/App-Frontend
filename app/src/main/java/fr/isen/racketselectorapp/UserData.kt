@@ -5,8 +5,11 @@ import java.io.Serializable
 class UserData : Serializable {
     private var name: String = ""
     private var age: Int = 0
-    private var genre: String = ""
-    private var size: Int = 0
+    private var gender: String = ""
+    private var height: Int = 0
+    private var weight: Int = 0
+
+    private var sessionId: String = ""
 
     fun getName(): String {
         return this.name
@@ -24,19 +27,35 @@ class UserData : Serializable {
         this.age = age
     }
 
-    fun getGenre(): String {
-        return this.genre
+    fun getGender(): String {
+        return this.gender
     }
 
-    fun setGenre(genre: String) {
-        this.genre = genre
+    fun setGender(gender: String) {
+        this.gender = gender
     }
 
-    fun getSize(): Int {
-        return this.size
+    fun getHeight(): Int {
+        return this.height
     }
 
-    fun setSize(size: Int) {
-        this.size = size
+    fun setHeight(height: Int) {
+        this.height = height
+    }
+
+    fun getWeight(): Int {
+        return this.weight
+    }
+
+    fun setWeight(weight: Int) {
+        this.weight = weight
+    }
+
+    fun getSessionId(): String {
+        return this.sessionId
+    }
+
+    fun setSessionId(sessionId: String) {
+        this.sessionId = sessionId
     }
 }

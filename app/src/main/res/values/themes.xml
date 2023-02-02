@@ -12,7 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/light_grey</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowSplashScreenBackground">@color/light_grey</item>
         <item name="android:navigationBarColor">@color/light_grey</item>
+
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
 
@@ -28,5 +30,15 @@
         <item name="cornerRadius">24dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="inputLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="hintTextColor">@color/yellow</item>
+        <item name="boxStrokeColor">@color/yellow</item>
     </style>
 </resources>
