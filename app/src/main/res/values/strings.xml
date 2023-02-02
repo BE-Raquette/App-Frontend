@@ -36,6 +36,8 @@
     <string name="hello">Bonjour</string>
     <string name="statistics_available">Vos statistiques de jeu sont disponibles</string>
     <string name="go_to_statistics">Accéder à vos statistiques</string>
+
+    <!-- Generic Strings -->
     <string name="image">image</string>
 
 </resources>
