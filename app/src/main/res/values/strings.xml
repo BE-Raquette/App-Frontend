@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Racket Selector App</string>
+    <string name="app_name">Racket Selector</string>
 
     <!-- Form Screen -->
     <string name="welcome">Bienvenue !</string>
