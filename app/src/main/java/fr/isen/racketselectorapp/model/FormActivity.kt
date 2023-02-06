@@ -1,4 +1,4 @@
-package fr.isen.racketselectorapp
+package fr.isen.racketselectorapp.model
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import fr.isen.racketselectorapp.R
+import fr.isen.racketselectorapp.api.ApiRoutes
+import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
+import fr.isen.racketselectorapp.model.process.ProcessActivity
 import org.json.JSONObject
 
 class FormActivity : AppCompatActivity() {
@@ -27,10 +31,7 @@ class FormActivity : AppCompatActivity() {
         binding.validateDataButton.setOnClickListener {
             if (checkInfo()) {
                 saveUserData()
-                val intent = Intent(this, ProcessActivity::class.java)
-                intent.putExtra(USER_DATA, userData)
-                startActivity(intent)
-                finish()
+                postUserDataRequest()
             } else {
                 Toast.makeText(this, R.string.form_incomplete, Toast.LENGTH_LONG).show()
             }
@@ -39,10 +40,10 @@ class FormActivity : AppCompatActivity() {
 
     private fun checkInfo(): Boolean {
         return (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
-            binding.enterNameInput.text?.isNotEmpty() == true &&
-            binding.enterAgeInput.text?.isNotEmpty() == true &&
-            binding.enterHeightInput.text?.isNotEmpty() == true &&
-            binding.enterWeightInput.text?.isNotEmpty() == true
+                binding.enterNameInput.text?.isNotEmpty() == true &&
+                binding.enterAgeInput.text?.isNotEmpty() == true &&
+                binding.enterHeightInput.text?.isNotEmpty() == true &&
+                binding.enterWeightInput.text?.isNotEmpty() == true
     }
 
     private fun saveUserData() {
@@ -62,8 +63,6 @@ class FormActivity : AppCompatActivity() {
         userData.setGender(gender)
         userData.setHeight(height)
         userData.setWeight(weight)
-
-        postUserDataRequest()
     }
 
     private fun postUserDataRequest() {
@@ -82,13 +81,22 @@ class FormActivity : AppCompatActivity() {
             parameters,
             {
                 Log.d("post request", it.toString(2))
-                userData.setSessionId(it.getString("session_id")) // doesn't work for the moment
+                userData.setSessionId(it.getString("session_id"))
+                goToProcessActivity()
             },
             {
                 Log.d("post request", it.toString())
             }
         )
+
         queue.add(request)
+    }
+
+    private fun goToProcessActivity() {
+        val intent = Intent(this, ProcessActivity::class.java)
+        intent.putExtra(USER_DATA, userData)
+        startActivity(intent)
+        finish()
     }
 
     companion object {

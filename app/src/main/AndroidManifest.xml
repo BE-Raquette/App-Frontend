@@ -13,18 +13,18 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.RacketSelectorApp">
         <activity
-            android:name=".RecapActivity"
+            android:name=".model.RecapActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".ProcessActivity"
+            android:name=".model.process.ProcessActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".FormActivity"
+            android:name=".model.FormActivity"
             android:exported="false">
         </activity>
-        <activity android:name=".SplashScreen"
+        <activity android:name=".splashscreen.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,12 +1,12 @@
-package fr.isen.racketselectorapp
+package fr.isen.racketselectorapp.splashscreen
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.racketselectorapp.model.FormActivity
 import fr.isen.racketselectorapp.databinding.SplashScreenBinding
 
 @SuppressLint("CustomSplashScreen")
