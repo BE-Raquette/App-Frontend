@@ -12,7 +12,7 @@ import fr.isen.racketselectorapp.databinding.ActivityProcessBinding
 
 interface ProcessActivityInteraction {
     fun showNextStep(fragment: Fragment)
-    fun goToRecap()
+    fun goToRecapActivity()
 }
 
 class ProcessActivity : AppCompatActivity(), ProcessActivityInteraction {
@@ -34,7 +34,7 @@ class ProcessActivity : AppCompatActivity(), ProcessActivityInteraction {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
     }
 
-    override fun goToRecap() {
+    override fun goToRecapActivity() {
         val intent = Intent(this, RecapActivity::class.java)
         intent.putExtra(USER_DATA, userData)
         startActivity(intent)
