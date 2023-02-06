@@ -1,4 +1,4 @@
-package fr.isen.racketselectorapp
+package fr.isen.racketselectorapp.data
 
 import java.io.Serializable
 
@@ -10,6 +10,7 @@ class UserData : Serializable {
     private var weight: Int = 0
 
     private var sessionId: String = ""
+
 
     fun getName(): String {
         return this.name

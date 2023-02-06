@@ -1,17 +1,21 @@
-package fr.isen.racketselectorapp
+package fr.isen.racketselectorapp.model
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import fr.isen.racketselectorapp.R
+import fr.isen.racketselectorapp.api.ApiRoutes
+import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityRecapBinding
+import fr.isen.racketselectorapp.model.process.ProcessActivity
 import org.json.JSONObject
 
 class RecapActivity : AppCompatActivity() {
-    lateinit var binding: ActivityRecapBinding
+    private lateinit var binding: ActivityRecapBinding
     private lateinit var userData: UserData
 
     @SuppressLint("SetTextI18n")
@@ -22,12 +26,14 @@ class RecapActivity : AppCompatActivity() {
 
         userData = intent.getSerializableExtra(ProcessActivity.USER_DATA) as UserData
 
+        endSessionRequest()
+
         binding.helloUser.text = "${getString(R.string.hello)} ${userData.getName()} !"
     }
 
-    fun endSessionRequest() { // to be completed when sessionId is stored correctly
+    private fun endSessionRequest() {
         val queue = Volley.newRequestQueue(this)
-        val url = ApiRoutes.BASE_URL + ApiRoutes.endSession(userData.getSessionId())
+        val url = ApiRoutes.endSession(userData.getSessionId())
         val parameters = JSONObject()
 
         val request = JsonObjectRequest(
@@ -35,12 +41,10 @@ class RecapActivity : AppCompatActivity() {
             url,
             parameters,
             {
-                Log.d("post request", it.toString(2))
-            },
-            {
-                Log.d("post request", it.toString())
-            }
-        )
+                Log.d("put request", it.toString(2))
+            }, {
+                Log.d("put request", it.toString())
+            })
         queue.add(request)
     }
 }

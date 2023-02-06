@@ -1,4 +1,4 @@
-package fr.isen.racketselectorapp.process
+package fr.isen.racketselectorapp.model.process
 
 import android.content.Context
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import fr.isen.racketselectorapp.ProcessActivityInteraction
 import fr.isen.racketselectorapp.databinding.FragmentBackhandBinding
 
 class BackhandFragment : Fragment() {

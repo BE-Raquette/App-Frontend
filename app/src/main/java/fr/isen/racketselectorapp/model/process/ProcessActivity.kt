@@ -1,11 +1,14 @@
-package fr.isen.racketselectorapp
+package fr.isen.racketselectorapp.model.process
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import fr.isen.racketselectorapp.model.FormActivity
+import fr.isen.racketselectorapp.R
+import fr.isen.racketselectorapp.model.RecapActivity
+import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityProcessBinding
-import fr.isen.racketselectorapp.process.StartFragment
 
 interface ProcessActivityInteraction {
     fun showNextStep(fragment: Fragment)
@@ -13,7 +16,7 @@ interface ProcessActivityInteraction {
 }
 
 class ProcessActivity : AppCompatActivity(), ProcessActivityInteraction {
-    lateinit var binding: ActivityProcessBinding
+    private lateinit var binding: ActivityProcessBinding
     private lateinit var userData: UserData
 
     override fun onCreate(savedInstanceState: Bundle?) {

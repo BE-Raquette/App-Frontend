@@ -1,4 +1,4 @@
-package fr.isen.racketselectorapp.process
+package fr.isen.racketselectorapp.model.process
 
 import android.content.Context
 import android.os.Bundle
@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import fr.isen.racketselectorapp.ProcessActivityInteraction
-import fr.isen.racketselectorapp.databinding.FragmentSmashBinding
+import fr.isen.racketselectorapp.databinding.FragmentServeBinding
 
-class SmashFragment : Fragment() {
-    private lateinit var binding: FragmentSmashBinding
+class ServeFragment : Fragment() {
+    private lateinit var binding: FragmentServeBinding
     private lateinit var interactor: ProcessActivityInteraction
 
     override fun onAttach(context: Context) {
@@ -22,15 +21,15 @@ class SmashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSmashBinding.inflate(inflater, container, false)
+        binding = FragmentServeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.nextSmashButton.setOnClickListener {
-            interactor.showNextStep(BackhandFragment())
+        binding.nextServeButton.setOnClickListener {
+            interactor.showNextStep(ForehandFragment())
         }
     }
 }
