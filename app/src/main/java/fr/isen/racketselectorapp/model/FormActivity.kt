@@ -39,11 +39,12 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun checkInfo(): Boolean {
-        return (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
-                binding.enterNameInput.text?.isNotEmpty() == true &&
-                binding.enterAgeInput.text?.isNotEmpty() == true &&
-                binding.enterHeightInput.text?.isNotEmpty() == true &&
-                binding.enterWeightInput.text?.isNotEmpty() == true
+        return binding.enterNameInput.text?.isNotEmpty() == true &&
+               binding.enterAgeInput.text?.isNotEmpty() == true &&
+               (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
+               binding.enterHeightInput.text?.isNotEmpty() == true &&
+               binding.enterWeightInput.text?.isNotEmpty() == true &&
+               (binding.leftHandButton.isChecked || binding.rightHandButton.isChecked)
     }
 
     private fun saveUserData() {
@@ -57,12 +58,18 @@ class FormActivity : AppCompatActivity() {
         }
         val height: Int = binding.enterHeightInput.text.toString().toInt()
         val weight: Int = binding.enterWeightInput.text.toString().toInt()
+        val hand: String = when (binding.handPref.checkedRadioButtonId) {
+            binding.leftHandButton.id -> "gaucher"
+            binding.rightHandButton.id -> "droitier"
+            else -> ""
+        }
 
         userData.setName(name)
         userData.setAge(age)
         userData.setGender(gender)
         userData.setHeight(height)
         userData.setWeight(weight)
+        userData.setHand(hand)
     }
 
     private fun postUserDataRequest() {
@@ -74,6 +81,7 @@ class FormActivity : AppCompatActivity() {
         parameters.put(KEY_GENDER, userData.getGender())
         parameters.put(KEY_HEIGHT, userData.getHeight())
         parameters.put(KEY_WEIGHT, userData.getWeight())
+        //parameters.put(KEY_HAND, userData.getHand())
 
         val request = JsonObjectRequest(
             Request.Method.POST,
@@ -106,5 +114,6 @@ class FormActivity : AppCompatActivity() {
         const val KEY_GENDER = "gender"
         const val KEY_HEIGHT = "height"
         const val KEY_WEIGHT = "weight"
+        const val KEY_HAND = "hand"
     }
 }

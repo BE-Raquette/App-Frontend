@@ -15,6 +15,8 @@
     <string name="height">Taille</string>
     <string name="enter_weight">Veuillez saisir votre poids en kg :</string>
     <string name="weight">Poids</string>
+    <string name="left_handed">Gaucher</string>
+    <string name="right_handed">Droitier</string>
     <string name="validate">Valider</string>
 
     <string name="form_incomplete">Veuillez compléter tous les champs avant de valider</string>

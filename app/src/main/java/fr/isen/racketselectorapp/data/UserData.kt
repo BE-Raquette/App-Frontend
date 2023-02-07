@@ -8,6 +8,7 @@ class UserData : Serializable {
     private var gender: String = ""
     private var height: Int = 0
     private var weight: Int = 0
+    private var hand: String = ""
 
     private var sessionId: String = ""
 
@@ -50,6 +51,14 @@ class UserData : Serializable {
 
     fun setWeight(weight: Int) {
         this.weight = weight
+    }
+
+    fun getHand(): String {
+        return this.hand
+    }
+
+    fun setHand(hand: String) {
+        this.hand = hand
     }
 
     fun getSessionId(): String {
