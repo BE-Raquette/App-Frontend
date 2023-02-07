@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.racketselectorapp.ble.BleActivity
 import fr.isen.racketselectorapp.databinding.SplashScreenBinding
 
 @SuppressLint("CustomSplashScreen")
@@ -19,7 +20,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, FormActivity::class.java)
+            val intent = Intent(this, BleActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)
