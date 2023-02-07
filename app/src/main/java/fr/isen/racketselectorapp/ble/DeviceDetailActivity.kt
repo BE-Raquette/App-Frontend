@@ -1,16 +1,12 @@
 package fr.isen.racketselectorapp.ble
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.bluetooth.*
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
-import android.util.Log
-import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import fr.isen.racketselectorapp.FormActivity
 import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.databinding.ActivityDeviceDetailBinding
 import java.util.*
@@ -56,7 +52,10 @@ class DeviceDetailActivity : AppCompatActivity() {
             when (newState) {
                 BluetoothGatt.STATE_CONNECTED -> {
                     gatt?.discoverServices()
-                    runOnUiThread { binding.deviceStatus.text = "Connected" }
+                    runOnUiThread {
+                        binding.deviceStatus.text = "Connected"
+                        goToFormActivity()
+                    }
                 }
                 BluetoothGatt.STATE_CONNECTING -> {
                     runOnUiThread { binding.deviceStatus.text = "Connection..." }
@@ -66,8 +65,11 @@ class DeviceDetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
-
-
+    private fun goToFormActivity() {
+        val intent = Intent(this, FormActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
