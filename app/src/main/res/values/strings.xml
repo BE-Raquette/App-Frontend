@@ -39,5 +39,13 @@
 
     <!-- Generic Strings -->
     <string name="image">image</string>
+    <string name="play" />
+    <string name="ble_device_status_connecting" />
+    <string name="ble_device_connected" />
+    <string name="ble_device_disconnected" />
+    <string name="ble_device_status_disconnecting" />
+    <string name="ble_scan_error" />
+    <string name="ble_scan_pause" />
+    <string name="ble_scan_play" />
 
 </resources>
