@@ -29,9 +29,10 @@ class DeviceDetailActivity : AppCompatActivity() {
         connectToDevice(device)
     }
 
+    //A enlever si on ne deconnecte pas du Ble à la fin
     override fun onStop() {
         super.onStop()
-        closeBluetoothGatt()
+      // closeBluetoothGatt()
     }
 
     private fun closeBluetoothGatt() {
