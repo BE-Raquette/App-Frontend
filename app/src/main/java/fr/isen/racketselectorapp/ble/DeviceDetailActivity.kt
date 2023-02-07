@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import fr.isen.racketselectorapp.FormActivity
 import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.databinding.ActivityDeviceDetailBinding
@@ -23,9 +24,7 @@ class DeviceDetailActivity : AppCompatActivity() {
         setContentView((binding.root))
 
         val device = intent.getParcelableExtra<BluetoothDevice?>(BleScanActivity.DEVICE_KEY)
-        Toast.makeText(this, device?.address, Toast.LENGTH_SHORT).show()
-        binding.deviceName.text = device?.name ?: "Nom inconnu"
-        binding.deviceStatus.text = getString(R.string.ble_device_disconnected)
+        Toast.makeText(this, R.string.ble_device_connected, Toast.LENGTH_SHORT).show()
 
         connectToDevice(device)
     }
@@ -53,15 +52,15 @@ class DeviceDetailActivity : AppCompatActivity() {
                 BluetoothGatt.STATE_CONNECTED -> {
                     gatt?.discoverServices()
                     runOnUiThread {
-                        binding.deviceStatus.text = "Connected"
+
                         goToFormActivity()
                     }
                 }
                 BluetoothGatt.STATE_CONNECTING -> {
-                    runOnUiThread { binding.deviceStatus.text = "Connection..." }
+
                 }
                 else -> {
-                    runOnUiThread { binding.deviceStatus.text = "No connection" }
+
                 }
             }
         }

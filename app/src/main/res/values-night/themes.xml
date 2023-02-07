@@ -37,4 +37,5 @@
     </style>
 
     <color name="changing_logo">@color/light_grey</color>
+    <color name="changing_text">@color/dark_grey</color>
 </resources>

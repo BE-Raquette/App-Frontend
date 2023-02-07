@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.RacketSelectorApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/light_grey</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowSplashScreenBackground">@color/light_grey</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/light_grey</item>
         <item name="android:navigationBarColor">@color/light_grey</item>
 
         <item name="android:windowLightStatusBar">true</item>
@@ -41,4 +41,7 @@
     </style>
 
     <color name="changing_logo">@color/dark_grey</color>
+    <color name="changing_text">@color/light_grey</color>
+
+
 </resources>
