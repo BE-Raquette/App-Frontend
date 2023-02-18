@@ -1,5 +1,6 @@
 package fr.isen.racketselectorapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,10 +11,12 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
 import org.json.JSONObject
+import fr.isen.racketselectorapp.ble.PressureSensor
 
 class FormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFormBinding
     private var userData = UserData()
+    private lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +24,9 @@ class FormActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         validationClick()
+
+        val psensor = PressureSensor(context)
+        psensor.connectToSensor("")
     }
 
     private fun validationClick() {

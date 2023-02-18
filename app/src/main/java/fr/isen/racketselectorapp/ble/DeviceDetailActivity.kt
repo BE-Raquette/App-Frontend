@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.bluetooth.*
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.racketselectorapp.FormActivity
 import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.databinding.ActivityDeviceDetailBinding
@@ -66,6 +68,7 @@ class DeviceDetailActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun goToFormActivity() {
         val intent = Intent(this, FormActivity::class.java)
