@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/forehand"
+        android:text="@string/do_forehand"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/nextForehandText"
         app:layout_constraintEnd_toEndOf="parent"

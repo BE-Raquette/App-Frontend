@@ -12,7 +12,6 @@ import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.api.ApiRoutes
 import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
-import fr.isen.racketselectorapp.model.process.ProcessActivity
 import org.json.JSONObject
 
 class FormActivity : AppCompatActivity() {
@@ -32,6 +31,7 @@ class FormActivity : AppCompatActivity() {
             if (checkInfo()) {
                 saveUserData()
                 postUserDataRequest()
+                //goToShotTypologyActivity() //to test without request
             } else {
                 Toast.makeText(this, R.string.form_incomplete, Toast.LENGTH_LONG).show()
             }
@@ -40,11 +40,11 @@ class FormActivity : AppCompatActivity() {
 
     private fun checkInfo(): Boolean {
         return binding.enterNameInput.text?.isNotEmpty() == true &&
-               binding.enterAgeInput.text?.isNotEmpty() == true &&
-               (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
-               binding.enterHeightInput.text?.isNotEmpty() == true &&
-               binding.enterWeightInput.text?.isNotEmpty() == true &&
-               (binding.leftHandButton.isChecked || binding.rightHandButton.isChecked)
+                binding.enterAgeInput.text?.isNotEmpty() == true &&
+                (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
+                binding.enterHeightInput.text?.isNotEmpty() == true &&
+                binding.enterWeightInput.text?.isNotEmpty() == true &&
+                (binding.leftHandButton.isChecked || binding.rightHandButton.isChecked)
     }
 
     private fun saveUserData() {
@@ -59,8 +59,8 @@ class FormActivity : AppCompatActivity() {
         val height: Int = binding.enterHeightInput.text.toString().toInt()
         val weight: Int = binding.enterWeightInput.text.toString().toInt()
         val hand: String = when (binding.handPref.checkedRadioButtonId) {
-            binding.leftHandButton.id -> "gaucher"
-            binding.rightHandButton.id -> "droitier"
+            binding.leftHandButton.id -> "left"
+            binding.rightHandButton.id -> "right"
             else -> ""
         }
 
@@ -81,7 +81,7 @@ class FormActivity : AppCompatActivity() {
         parameters.put(KEY_GENDER, userData.getGender())
         parameters.put(KEY_HEIGHT, userData.getHeight())
         parameters.put(KEY_WEIGHT, userData.getWeight())
-        //parameters.put(KEY_HAND, userData.getHand())
+        parameters.put(KEY_HAND, userData.getHand())
 
         val request = JsonObjectRequest(
             Request.Method.POST,
@@ -90,7 +90,7 @@ class FormActivity : AppCompatActivity() {
             {
                 Log.d("post request", it.toString(2))
                 userData.setSessionId(it.getString("session_id"))
-                goToProcessActivity()
+                goToShotTypologyActivity()
             },
             {
                 Log.d("post request", it.toString())
@@ -100,8 +100,8 @@ class FormActivity : AppCompatActivity() {
         queue.add(request)
     }
 
-    private fun goToProcessActivity() {
-        val intent = Intent(this, ProcessActivity::class.java)
+    private fun goToShotTypologyActivity() {
+        val intent = Intent(this, ShotTypologyActivity::class.java)
         intent.putExtra(USER_DATA, userData)
         startActivity(intent)
         finish()

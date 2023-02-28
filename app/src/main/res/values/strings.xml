@@ -23,16 +23,30 @@
 
     <!-- Process Screens -->
     <string name="follow_instructions">Prenez la raquette et suivez les instructions</string>
-    <string name="serve">Pour commencer, veuillez effectuer 3 services</string>
-    <string name="forehand">Veuillez effectuer 3 coups droits</string>
-    <string name="smash">Veuillez effectuer 3 smashes</string>
-    <string name="backhand">Pour finir, veuillez effectuer 3 revers</string>
+    <string name="do_serve">Pour commencer, veuillez effectuer 3 services</string>
+    <string name="do_forehand">Veuillez effectuer 3 coups droits</string>
+    <string name="do_smash">Veuillez effectuer 3 smashes</string>
+    <string name="do_backhand">Pour finir, veuillez effectuer 3 revers</string>
     <string name="when_done">Une fois terminé, appuyez sur "suivant"</string>
     <string name="when_finished">Une fois terminé, appuyez sur "terminer"</string>
 
-    <string name="begin">Commencer</string>
     <string name="next">Suivant</string>
     <string name="finish">Terminer</string>
+
+    <!-- Shot Typology Screen -->
+    <string name="shot_typology_to_test">Quel type de coup souhaitez-vous analyser ?</string>
+    <string name="forehand_shot">Coup droit</string>
+    <string name="backhand_shot">Revers</string>
+    <string name="serve">Service</string>
+    <string name="volley">Volée</string>
+    <string name="smash">Smash</string>
+
+    <string name="start">Commencer</string>
+
+    <string name="radio_group_incomplete">Veuillez choisir un type de coup à analyser</string>
+
+    <!-- Countdown Screen -->
+    <string name="go">C\'est parti !</string>
 
     <!-- Recap Screen -->
     <string name="hello">Bonjour</string>
@@ -41,5 +55,6 @@
 
     <!-- Generic Strings -->
     <string name="image">image</string>
+    <string name="text">texte</string>
 
 </resources>

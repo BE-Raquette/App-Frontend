@@ -11,7 +11,6 @@ import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.api.ApiRoutes
 import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityRecapBinding
-import fr.isen.racketselectorapp.model.process.ProcessActivity
 import org.json.JSONObject
 
 class RecapActivity : AppCompatActivity() {
@@ -24,7 +23,7 @@ class RecapActivity : AppCompatActivity() {
         binding = ActivityRecapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userData = intent.getSerializableExtra(ProcessActivity.USER_DATA) as UserData
+        userData = intent.getSerializableExtra(CountdownActivity.USER_DATA) as UserData
 
         endSessionRequest()
 

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/serve"
+        android:text="@string/do_serve"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/nextServeText"
         app:layout_constraintEnd_toEndOf="parent"
