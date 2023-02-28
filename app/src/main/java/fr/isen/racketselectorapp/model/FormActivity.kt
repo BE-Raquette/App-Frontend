@@ -10,6 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.api.ApiRoutes
+import fr.isen.racketselectorapp.data.SessionData
 import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
 import org.json.JSONObject
@@ -17,6 +18,7 @@ import org.json.JSONObject
 class FormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFormBinding
     private var userData = UserData()
+    private var sessionData = SessionData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +76,7 @@ class FormActivity : AppCompatActivity() {
 
     private fun postUserDataRequest() {
         val queue = Volley.newRequestQueue(this)
-        val url = ApiRoutes.BASE_URL + ApiRoutes.POST_USER
+        val url = ApiRoutes.POST_USER
 
         val parameters = JSONObject()
         parameters.put(KEY_AGE, userData.getAge())
@@ -90,6 +92,7 @@ class FormActivity : AppCompatActivity() {
             {
                 Log.d("post request", it.toString(2))
                 userData.setSessionId(it.getString("session_id"))
+                sessionData.setSessionId(it.getString("session_id"))
                 goToShotTypologyActivity()
             },
             {
@@ -101,14 +104,16 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun goToShotTypologyActivity() {
-        val intent = Intent(this, ShotTypologyActivity::class.java)
+        val intent = Intent(this, StrokeTypologyActivity::class.java)
         intent.putExtra(USER_DATA, userData)
+        intent.putExtra(SESSION_DATA, sessionData)
         startActivity(intent)
         finish()
     }
 
     companion object {
         const val USER_DATA = "USER_DATA"
+        const val SESSION_DATA = "SESSION_DATA"
 
         const val KEY_AGE = "age"
         const val KEY_GENDER = "gender"

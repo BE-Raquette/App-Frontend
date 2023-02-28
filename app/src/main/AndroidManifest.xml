@@ -13,16 +13,20 @@
         android:theme="@style/Theme.RacketSelectorApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".model.StrokesInProgressActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".model.CountdownActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".model.ShotTypologyActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".model.RecapActivity"
             android:exported="false" />
         <activity
-            android:name=".model.process.ProcessActivity"
+            android:name=".model.StrokeTypologyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".model.RecapActivity"
             android:exported="false" />
         <activity
             android:name=".model.FormActivity"

@@ -7,19 +7,23 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.racketselectorapp.R
+import fr.isen.racketselectorapp.data.SessionData
 import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityCountdownBinding
 
 class CountdownActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCountdownBinding
     private lateinit var userData: UserData
+    private lateinit var sessionData: SessionData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCountdownBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userData = intent.getSerializableExtra(ShotTypologyActivity.USER_DATA) as UserData
+        userData = intent.getSerializableExtra(StrokeTypologyActivity.USER_DATA) as UserData
+        sessionData =
+            intent.getSerializableExtra(StrokeTypologyActivity.SESSION_DATA) as SessionData
 
         countdownToStart()
     }
@@ -40,8 +44,9 @@ class CountdownActivity : AppCompatActivity() {
 
     private fun goToRecapActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, RecapActivity::class.java)
+            val intent = Intent(this, StrokesInProgressActivity::class.java)
             intent.putExtra(USER_DATA, userData)
+            intent.putExtra(SESSION_DATA, sessionData)
             startActivity(intent)
             finish()
         }, 1000)
@@ -49,5 +54,6 @@ class CountdownActivity : AppCompatActivity() {
 
     companion object {
         const val USER_DATA = "USER_DATA"
+        const val SESSION_DATA = "SESSION_DATA"
     }
 }
