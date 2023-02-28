@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".model.ShotTypologyActivity">
+
+    <TextView
+        android:id="@+id/shotTypologyTitle"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shot_typology_to_test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/forehandShot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/forehand_shot" />
+
+        <RadioButton
+            android:id="@+id/backhandShot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/backhand_shot"
+            tools:ignore="TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/serveShot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/serve"
+            tools:ignore="TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/volleyShot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/volley"
+            tools:ignore="TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/smashShot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/smash"
+            tools:ignore="TextContrastCheck" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/startButton"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

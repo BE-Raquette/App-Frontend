@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/backhand"
+        android:text="@string/do_backhand"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/nextBackhandText"
         app:layout_constraintEnd_toEndOf="parent"

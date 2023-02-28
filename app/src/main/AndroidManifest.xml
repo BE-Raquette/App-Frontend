@@ -10,21 +10,25 @@
         android:icon="@mipmap/racket_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.RacketSelectorApp">
+        android:theme="@style/Theme.RacketSelectorApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".model.CountdownActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".model.ShotTypologyActivity"
+            android:exported="false"/>
         <activity
             android:name=".model.RecapActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".model.process.ProcessActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".model.FormActivity"
-            android:exported="false">
-        </activity>
-        <activity android:name=".splashscreen.SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".splashscreen.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
