@@ -20,7 +20,21 @@ class StrokesInProgressActivity : AppCompatActivity() {
         userData = intent.getSerializableExtra(CountdownActivity.USER_DATA) as UserData
         sessionData = intent.getSerializableExtra(CountdownActivity.SESSION_DATA) as SessionData
 
+        setProgressText()
         finishButtonClick()
+    }
+
+    private fun setProgressText() {
+        val strokeType: String = when(sessionData.getStrokeType()) {
+            "forehand_strokes" -> "coups droits"
+            "backhand-strokes" -> "revers"
+            "serves" -> "services"
+            "smashs" -> "smashs"
+            "volleys" -> "volées"
+            else -> "frappes"
+        }
+
+        binding.inProgressText.text = "Session de $strokeType en cours…"
     }
 
     private fun finishButtonClick() {

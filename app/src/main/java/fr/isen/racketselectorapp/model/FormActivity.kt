@@ -33,7 +33,6 @@ class FormActivity : AppCompatActivity() {
             if (checkInfo()) {
                 saveUserData()
                 postUserDataRequest()
-                //goToShotTypologyActivity() //to test without request
             } else {
                 Toast.makeText(this, R.string.form_incomplete, Toast.LENGTH_LONG).show()
             }

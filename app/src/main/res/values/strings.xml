@@ -37,7 +37,6 @@
     <string name="go">C\'est parti !</string>
 
     <!-- Strokes In Progress Screen -->
-    <string name="session_in_progress">Session de frappes en cours…</string>
     <string name="finish">Terminer</string>
 
     <!-- Recap Screen -->
