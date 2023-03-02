@@ -26,7 +26,7 @@ class RecapActivity : AppCompatActivity() {
         userData = intent.getSerializableExtra(CountdownActivity.USER_DATA) as UserData
         sessionData = intent.getSerializableExtra(CountdownActivity.SESSION_DATA) as SessionData
 
-        binding.helloUser.text = "${getString(R.string.hello)} ${userData.getName()} !"
+        binding.helloUser.text = getString(R.string.hello_user, userData.getName())
 
         postSessionDataRequest()
     }
@@ -35,6 +35,7 @@ class RecapActivity : AppCompatActivity() {
         val queue = Volley.newRequestQueue(this)
         val url = ApiRoutes.postSessionData(sessionData.getSessionId(), sessionData.getStrokeType())
         val parameters = JSONObject()
+        parameters.put("2023-02-28 16:13:56", "1")
 
         val request = JsonObjectRequest(
             Request.Method.POST,

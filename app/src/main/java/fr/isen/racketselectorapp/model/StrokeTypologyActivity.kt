@@ -25,7 +25,7 @@ class StrokeTypologyActivity : AppCompatActivity() {
         startButtonClick()
     }
 
-    private fun startButtonClick() {
+    private fun startButtonClick() =
         binding.startButton.setOnClickListener {
             if (checkIfShotIsSelected()) {
                 sessionData.setStrokeType(convertStrokeTypeToString())
@@ -34,15 +34,11 @@ class StrokeTypologyActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.stroke_selection_incomplete, Toast.LENGTH_LONG).show()
             }
         }
-    }
 
-    private fun checkIfShotIsSelected(): Boolean {
-        return binding.forehandShot.isChecked ||
-                binding.backhandShot.isChecked ||
-                binding.serveShot.isChecked ||
-                binding.volleyShot.isChecked ||
-                binding.smashShot.isChecked
-    }
+
+    private fun checkIfShotIsSelected(): Boolean =
+        binding.forehandShot.isChecked || binding.backhandShot.isChecked || binding.serveShot.isChecked || binding.volleyShot.isChecked || binding.smashShot.isChecked
+
 
     private fun convertStrokeTypeToString(): String =
         when (binding.strokeTypeList.checkedRadioButtonId) {

@@ -28,8 +28,8 @@ class CountdownActivity : AppCompatActivity() {
         countdownToStart()
     }
 
-    private fun countdownToStart() {
-        val timer = object : CountDownTimer(3000, 1000) {
+    private fun countdownToStart() =
+        object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.countdownText.text = "${millisUntilFinished / 1000 + 1}"
             }
@@ -38,11 +38,9 @@ class CountdownActivity : AppCompatActivity() {
                 binding.countdownText.text = getString(R.string.go)
                 goToRecapActivity()
             }
-        }
-        timer.start()
-    }
+        }.start()
 
-    private fun goToRecapActivity() {
+    private fun goToRecapActivity() =
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, StrokesInProgressActivity::class.java)
             intent.putExtra(USER_DATA, userData)
@@ -50,7 +48,6 @@ class CountdownActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }, 1000)
-    }
 
     companion object {
         const val USER_DATA = "USER_DATA"

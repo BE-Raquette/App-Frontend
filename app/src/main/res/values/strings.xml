@@ -38,10 +38,11 @@
 
     <!-- Strokes In Progress Screen -->
     <string name="finish">Terminer</string>
+    <string name="in_progress">Session de %s en cours…</string>
 
     <!-- Recap Screen -->
-    <string name="hello">Bonjour</string>
-    <string name="statistics_available">Vos statistiques de jeu sont disponibles</string>
+    <string name="hello_user">Bonjour %s !</string>
+    <string name="statistics_available">Les statistiques de votre session sont désormais disponibles</string>
     <string name="go_to_statistics">Accéder à vos statistiques</string>
 
     <!-- Generic Strings -->

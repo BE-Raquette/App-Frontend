@@ -1,8 +1,9 @@
 package fr.isen.racketselectorapp.model
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.data.SessionData
 import fr.isen.racketselectorapp.data.UserData
 import fr.isen.racketselectorapp.databinding.ActivityStrokesInProgressBinding
@@ -25,7 +26,7 @@ class StrokesInProgressActivity : AppCompatActivity() {
     }
 
     private fun setProgressText() {
-        val strokeType: String = when(sessionData.getStrokeType()) {
+        val strokeType: String = when (sessionData.getStrokeType()) {
             "forehand_strokes" -> "coups droits"
             "backhand-strokes" -> "revers"
             "serves" -> "services"
@@ -34,14 +35,14 @@ class StrokesInProgressActivity : AppCompatActivity() {
             else -> "frappes"
         }
 
-        binding.inProgressText.text = "Session de $strokeType en cours…"
+        binding.inProgressText.text = getString(R.string.in_progress, strokeType)
     }
 
-    private fun finishButtonClick() {
+    private fun finishButtonClick() =
         binding.finishButton.setOnClickListener {
             goToRecapActivity()
         }
-    }
+
 
     private fun goToRecapActivity() {
         val intent = Intent(this, RecapActivity::class.java)

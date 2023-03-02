@@ -28,25 +28,26 @@ class FormActivity : AppCompatActivity() {
         validationClick()
     }
 
-    private fun validationClick() {
+    private fun validationClick() =
         binding.validateDataButton.setOnClickListener {
             if (checkInfo()) {
                 saveUserData()
-                postUserDataRequest()
+                //postUserDataRequest()
+                goToShotTypologyActivity()
             } else {
                 Toast.makeText(this, R.string.form_incomplete, Toast.LENGTH_LONG).show()
             }
         }
-    }
 
-    private fun checkInfo(): Boolean {
-        return binding.enterNameInput.text?.isNotEmpty() == true &&
+
+    private fun checkInfo(): Boolean =
+        binding.enterNameInput.text?.isNotEmpty() == true &&
                 binding.enterAgeInput.text?.isNotEmpty() == true &&
                 (binding.maleButton.isChecked || binding.femaleButton.isChecked || binding.otherButton.isChecked) &&
                 binding.enterHeightInput.text?.isNotEmpty() == true &&
                 binding.enterWeightInput.text?.isNotEmpty() == true &&
                 (binding.leftHandButton.isChecked || binding.rightHandButton.isChecked)
-    }
+
 
     private fun saveUserData() {
         val name: String = binding.enterNameInput.text.toString()
@@ -90,7 +91,6 @@ class FormActivity : AppCompatActivity() {
             parameters,
             {
                 Log.d("post request", it.toString(2))
-                userData.setSessionId(it.getString("session_id"))
                 sessionData.setSessionId(it.getString("session_id"))
                 goToShotTypologyActivity()
             },
