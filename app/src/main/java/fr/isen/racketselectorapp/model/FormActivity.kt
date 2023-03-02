@@ -32,8 +32,7 @@ class FormActivity : AppCompatActivity() {
         binding.validateDataButton.setOnClickListener {
             if (checkInfo()) {
                 saveUserData()
-                //postUserDataRequest()
-                goToShotTypologyActivity()
+                postUserDataRequest()
             } else {
                 Toast.makeText(this, R.string.form_incomplete, Toast.LENGTH_LONG).show()
             }

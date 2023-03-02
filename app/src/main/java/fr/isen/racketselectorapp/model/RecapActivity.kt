@@ -1,5 +1,6 @@
 package fr.isen.racketselectorapp.model
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -43,9 +44,16 @@ class RecapActivity : AppCompatActivity() {
             parameters,
             {
                 Log.d("data request", it.toString(2))
+                goToStatisticsActivity()
             }, {
                 Log.d("data request", it.toString())
             })
         queue.add(request)
+    }
+
+    private fun goToStatisticsActivity() {
+        val intent = Intent(this, StatisticsActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

@@ -1,10 +1,9 @@
 package fr.isen.racketselectorapp.api
 
-import kotlin.reflect.typeOf
-
 class ApiRoutes {
     companion object {
-        private const val BASE_URL = "http://192.168.236.137:8080" // local address, usable with Yo connection
+        private const val BASE_URL =
+            "http://192.168.236.137:8080" // local address, usable with Yo connection
 
         const val POST_USER = "$BASE_URL/sessions/start"
 

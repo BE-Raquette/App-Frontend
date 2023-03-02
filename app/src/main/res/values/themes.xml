@@ -42,5 +42,10 @@
         <item name="android:layout_marginTop">8dp</item>
     </style>
 
-    <color name="changing_logo">@color/dark_grey</color>
+    <style name="progressIndicator">
+        <item name="trackColor">@color/light_grey</item>
+        <item name="indicatorColor">@color/dark_grey</item>
+    </style>
+
+    <color name="changing_theme">@color/dark_grey</color>
 </resources>
