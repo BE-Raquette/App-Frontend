@@ -21,37 +21,43 @@
 
     <string name="form_incomplete">Veuillez compléter tous les champs avant de valider</string>
 
-    <!-- Process Screens -->
-    <string name="follow_instructions">Prenez la raquette et suivez les instructions</string>
-    <string name="do_serve">Pour commencer, veuillez effectuer 3 services</string>
-    <string name="do_forehand">Veuillez effectuer 3 coups droits</string>
-    <string name="do_smash">Veuillez effectuer 3 smashes</string>
-    <string name="do_backhand">Pour finir, veuillez effectuer 3 revers</string>
-    <string name="when_done">Une fois terminé, appuyez sur "suivant"</string>
-    <string name="when_finished">Une fois terminé, appuyez sur "terminer"</string>
-
-    <string name="next">Suivant</string>
-    <string name="finish">Terminer</string>
-
-    <!-- Shot Typology Screen -->
-    <string name="shot_typology_to_test">Quel type de coup souhaitez-vous analyser ?</string>
-    <string name="forehand_shot">Coup droit</string>
-    <string name="backhand_shot">Revers</string>
+    <!-- Stroke Typology Screen -->
+    <string name="stroke_typology_to_test">Quel type de coup souhaitez-vous analyser ?</string>
+    <string name="forehand_stroke">Coup droit</string>
+    <string name="backhand_stroke">Revers</string>
     <string name="serve">Service</string>
     <string name="volley">Volée</string>
     <string name="smash">Smash</string>
 
     <string name="start">Commencer</string>
 
-    <string name="radio_group_incomplete">Veuillez choisir un type de coup à analyser</string>
+    <string name="stroke_selection_incomplete">Veuillez choisir un type de coup à analyser</string>
 
     <!-- Countdown Screen -->
     <string name="go">C\'est parti !</string>
 
+    <!-- Strokes In Progress Screen -->
+    <string name="finish">Terminer</string>
+    <string name="in_progress">Session de %s en cours…</string>
+
     <!-- Recap Screen -->
-    <string name="hello">Bonjour</string>
-    <string name="statistics_available">Vos statistiques de jeu sont disponibles</string>
+    <string name="hello_user">Bonjour %s !</string>
+    <string name="statistics_available">Les statistiques de votre session sont désormais disponibles</string>
     <string name="go_to_statistics">Accéder à vos statistiques</string>
+
+    <!-- Statistics Screen -->
+    <string name="your_statistics">Vos statistiques</string>
+    <string name="time">Temps (ms)</string>
+    <string name="prehension_max">Force de préhension maximale (kg)</string>
+    <string name="prehension_value">19.5</string>
+    <string name="speed_max">Vitesse maximale (km/h)</string>
+    <string name="speed_value">84</string>
+    <string name="spin_on_touch">Plan de frappe (°)</string>
+    <string name="spin_value">48</string>
+    <string name="prehension_chart">Force de préhension en kg en fonction du temps</string>
+    <string name="speed_chart">Vitesse de la raquette en km/h en fonction du temps</string>
+    <string name="stroke_zone">Zone de frappes</string>
+    <string name="stroke_plan">Plans de frappes</string>
 
     <!-- Generic Strings -->
     <string name="image">image</string>

@@ -18,26 +18,10 @@
         <item name="android:textColor">@color/light_grey</item>
     </style>
 
-    <style name="title">
-        <item name="android:textSize">24sp</item>
-        <item name="android:layout_marginTop">32dp</item>
-        <item name="android:textAlignment">center</item>
+    <style name="progressIndicator">
+        <item name="trackColor">@color/dark_grey</item>
+        <item name="indicatorColor">@color/light_grey</item>
     </style>
 
-    <style name="button">
-        <item name="cornerRadius">24dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:layout_marginBottom">32dp</item>
-    </style>
-
-    <style name="inputLayout">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">32dp</item>
-        <item name="android:layout_marginEnd">32dp</item>
-        <item name="android:layout_marginTop">8dp</item>
-    </style>
-
-    <color name="changing_logo">@color/light_grey</color>
+    <color name="changing_theme">@color/light_grey</color>
 </resources>

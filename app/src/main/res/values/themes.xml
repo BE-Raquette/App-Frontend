@@ -42,5 +42,19 @@
         <item name="android:layout_marginTop">8dp</item>
     </style>
 
-    <color name="changing_logo">@color/dark_grey</color>
+    <style name="progressIndicator">
+        <item name="trackColor">@color/light_grey</item>
+        <item name="indicatorColor">@color/dark_grey</item>
+    </style>
+
+    <style name="statisticsTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <color name="changing_theme">@color/dark_grey</color>
 </resources>
