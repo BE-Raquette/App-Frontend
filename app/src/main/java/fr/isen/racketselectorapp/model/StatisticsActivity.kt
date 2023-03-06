@@ -1,5 +1,6 @@
 package fr.isen.racketselectorapp.model
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.animation.Easing
@@ -20,6 +21,23 @@ class StatisticsActivity : AppCompatActivity() {
         binding = ActivityStatisticsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initializeScreen()
+        finishButtonClick()
+    }
+
+    private fun finishButtonClick() {
+        binding.finishStatsButton.setOnClickListener {
+            goToFormActivity()
+        }
+    }
+
+    private fun goToFormActivity() {
+        val intent = Intent(this, FormActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun initializeScreen() {
         val prehensionFirstLine = setLineChartData(prehensionFirstLine(), R.color.teal_light)
         val prehensionSecondLine = setLineChartData(prehensionSecondLine(), R.color.teal_dark)
 
@@ -31,6 +49,47 @@ class StatisticsActivity : AppCompatActivity() {
 
         drawChart(prehensionLines, binding.prehensionGraph)
         drawChart(speedLines, binding.speedGraph)
+    }
+
+    private fun setLineChartData(lineValues: ArrayList<Entry>, color: Int): LineDataSet {
+        val lineDataset = LineDataSet(lineValues, "Préhension")
+        //We add features to our chart
+        lineDataset.color = resources.getColor(color)
+        lineDataset.lineWidth = 3f
+        lineDataset.circleRadius = 2f
+        lineDataset.setCircleColors(color)
+        lineDataset.valueTextSize = 0f
+        lineDataset.mode = LineDataSet.Mode.CUBIC_BEZIER
+
+        return lineDataset
+    }
+
+    private fun drawChart(linesDataSet: List<LineDataSet>, chart: LineChart) {
+        val data = LineData(linesDataSet)
+        chart.data = data
+        chart.animateXY(2000, 2000, Easing.EaseInCubic)
+
+        chart.description.isEnabled = false
+        chart.legend.isEnabled = false
+
+        chart.setTouchEnabled(false)
+        chart.setPinchZoom(false)
+        chart.setDrawGridBackground(false)
+
+        val x: XAxis = chart.xAxis
+        x.position = XAxis.XAxisPosition.BOTTOM
+        x.setDrawAxisLine(true)
+        x.setDrawGridLines(false)
+        x.textColor = getColor(R.color.changing_theme)
+        x.axisLineColor = getColor(R.color.changing_theme)
+
+        val y: YAxis = chart.axisLeft
+        y.setDrawZeroLine(true)
+        y.setDrawGridLines(false)
+        y.textColor = getColor(R.color.changing_theme)
+        y.axisLineColor = getColor(R.color.changing_theme)
+
+        chart.axisRight.isEnabled = false
     }
 
     private fun prehensionFirstLine(): ArrayList<Entry> {
@@ -135,46 +194,5 @@ class StatisticsActivity : AppCompatActivity() {
         lineValues.add(Entry(95f, 13f))
         lineValues.add(Entry(100f, 12f))
         return lineValues
-    }
-
-    private fun setLineChartData(lineValues: ArrayList<Entry>, color: Int): LineDataSet {
-        val lineDataset = LineDataSet(lineValues, "Préhension")
-        //We add features to our chart
-        lineDataset.color = resources.getColor(color)
-        lineDataset.lineWidth = 3f
-        lineDataset.circleRadius = 2f
-        lineDataset.setCircleColors(color)
-        lineDataset.valueTextSize = 0f
-        lineDataset.mode = LineDataSet.Mode.CUBIC_BEZIER
-
-        return lineDataset
-    }
-
-    private fun drawChart(linesDataSet: List<LineDataSet>, chart: LineChart) {
-        val data = LineData(linesDataSet)
-        chart.data = data
-        chart.animateXY(2000, 2000, Easing.EaseInCubic)
-
-        chart.description.isEnabled = false
-        chart.legend.isEnabled = false
-
-        chart.setTouchEnabled(false)
-        chart.setPinchZoom(false)
-        chart.setDrawGridBackground(false)
-
-        val x: XAxis = chart.xAxis
-        x.position = XAxis.XAxisPosition.BOTTOM
-        x.setDrawAxisLine(true)
-        x.setDrawGridLines(false)
-        x.textColor = getColor(R.color.changing_theme)
-        x.axisLineColor = getColor(R.color.changing_theme)
-
-        val y: YAxis = chart.axisLeft
-        y.setDrawZeroLine(true)
-        y.setDrawGridLines(false)
-        y.textColor = getColor(R.color.changing_theme)
-        y.axisLineColor = getColor(R.color.changing_theme)
-
-        chart.axisRight.isEnabled = false
     }
 }

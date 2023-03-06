@@ -36,11 +36,11 @@ class CountdownActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 binding.countdownText.text = getString(R.string.go)
-                goToRecapActivity()
+                goToInProgressActivity()
             }
         }.start()
 
-    private fun goToRecapActivity() =
+    private fun goToInProgressActivity() =
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, StrokesInProgressActivity::class.java)
             intent.putExtra(USER_DATA, userData)

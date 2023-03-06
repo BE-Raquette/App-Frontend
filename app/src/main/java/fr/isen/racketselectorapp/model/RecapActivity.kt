@@ -47,6 +47,7 @@ class RecapActivity : AppCompatActivity() {
                 goToStatisticsActivity()
             }, {
                 Log.d("data request", it.toString())
+                goToStatisticsActivity()
             })
         queue.add(request)
     }

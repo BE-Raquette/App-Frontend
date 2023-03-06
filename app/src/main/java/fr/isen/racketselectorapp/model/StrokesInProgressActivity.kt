@@ -28,7 +28,7 @@ class StrokesInProgressActivity : AppCompatActivity() {
     private fun setProgressText() {
         val strokeType: String = when (sessionData.getStrokeType()) {
             "forehand_strokes" -> "coups droits"
-            "backhand-strokes" -> "revers"
+            "backhand_strokes" -> "revers"
             "serves" -> "services"
             "smashs" -> "smashs"
             "volleys" -> "volées"

@@ -91,17 +91,17 @@ class FormActivity : AppCompatActivity() {
             {
                 Log.d("post request", it.toString(2))
                 sessionData.setSessionId(it.getString("session_id"))
-                goToShotTypologyActivity()
+                goToStrokeTypologyActivity()
             },
             {
                 Log.d("post request", it.toString())
+                goToStrokeTypologyActivity()
             }
         )
-
         queue.add(request)
     }
 
-    private fun goToShotTypologyActivity() {
+    private fun goToStrokeTypologyActivity() {
         val intent = Intent(this, StrokeTypologyActivity::class.java)
         intent.putExtra(USER_DATA, userData)
         intent.putExtra(SESSION_DATA, sessionData)
