@@ -29,7 +29,13 @@ class RecapActivity : AppCompatActivity() {
 
         binding.helloUser.text = getString(R.string.hello_user, userData.getName())
 
-        postSessionDataRequest()
+        goToStatisticsButtonClick()
+    }
+
+    private fun goToStatisticsButtonClick() {
+        binding.statisticsButton.setOnClickListener {
+            postSessionDataRequest()
+        }
     }
 
     private fun postSessionDataRequest() {
