@@ -80,14 +80,14 @@ class StatisticsActivity : AppCompatActivity() {
         x.position = XAxis.XAxisPosition.BOTTOM
         x.setDrawAxisLine(true)
         x.setDrawGridLines(false)
-        x.textColor = getColor(R.color.changing_theme)
-        x.axisLineColor = getColor(R.color.changing_theme)
+        x.textColor = getColor(R.color.changing_background)
+        x.axisLineColor = getColor(R.color.changing_background)
 
         val y: YAxis = chart.axisLeft
         y.setDrawZeroLine(true)
         y.setDrawGridLines(false)
-        y.textColor = getColor(R.color.changing_theme)
-        y.axisLineColor = getColor(R.color.changing_theme)
+        y.textColor = getColor(R.color.changing_background)
+        y.axisLineColor = getColor(R.color.changing_background)
 
         chart.axisRight.isEnabled = false
     }

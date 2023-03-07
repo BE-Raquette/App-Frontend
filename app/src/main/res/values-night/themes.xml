@@ -23,5 +23,6 @@
         <item name="indicatorColor">@color/light_grey</item>
     </style>
 
-    <color name="changing_theme">@color/light_grey</color>
+    <color name="changing_background">@color/light_grey</color>
+    <color name="changing_text">@color/dark_grey</color>
 </resources>

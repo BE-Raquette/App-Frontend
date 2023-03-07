@@ -56,9 +56,6 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
-    <color name="changing_theme">@color/dark_grey</color>
-
-    <!-- verifier utilisation-->
-    <color name="changing_logo">@color/dark_grey</color>
+    <color name="changing_background">@color/dark_grey</color>
     <color name="changing_text">@color/light_grey</color>
 </resources>

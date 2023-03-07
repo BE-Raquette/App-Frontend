@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Racket Selector</string>
 
+    <!--BLE Screens -->
+    <string name="connect_to_ble">Se connecter au Bluetooth</string>
+
     <!-- Form Screen -->
     <string name="welcome">Bienvenue !</string>
     <string name="enter_name">Veuillez saisir votre prénom :</string>

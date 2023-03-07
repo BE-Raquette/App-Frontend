@@ -8,11 +8,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import fr.isen.racketselectorapp.FormActivity
 import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.databinding.ActivityDeviceDetailBinding
+import fr.isen.racketselectorapp.model.FormActivity
 import java.util.*
 
 @SuppressLint("MissingPermission")
@@ -35,7 +33,7 @@ class DeviceDetailActivity : AppCompatActivity() {
     //A enlever si on ne deconnecte pas du Ble à la fin
     override fun onStop() {
         super.onStop()
-      // closeBluetoothGatt()
+        // closeBluetoothGatt()
     }
 
     private fun closeBluetoothGatt() {
@@ -72,7 +70,10 @@ class DeviceDetailActivity : AppCompatActivity() {
             Log.d(ContentValues.TAG, "onConnectionStateChange done.")
         }
 
-        override fun onCharacteristicChanged(gatt: BluetoothGatt, characteristic: BluetoothGattCharacteristic) {
+        override fun onCharacteristicChanged(
+            gatt: BluetoothGatt,
+            characteristic: BluetoothGattCharacteristic
+        ) {
             val pressure = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 0)
             Log.d(ContentValues.TAG, "Pressure value received: $pressure")
 
