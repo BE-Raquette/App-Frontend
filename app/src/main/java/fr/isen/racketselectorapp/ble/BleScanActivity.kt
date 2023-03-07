@@ -1,6 +1,6 @@
 package fr.isen.racketselectorapp.ble
 
-import android.Manifest
+import android.Manifest.permission
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
@@ -13,6 +13,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,7 @@ class BleScanActivity : AppCompatActivity() {
         bluetoothManager.adapter
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ble_scan)
@@ -84,31 +86,31 @@ class BleScanActivity : AppCompatActivity() {
     private fun getAllPermissions(): Array<String> {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             arrayOf(
-                android.Manifest.permission.ACCESS_FINE_LOCATION,
-                android.Manifest.permission.BLUETOOTH_SCAN,
-                android.Manifest.permission.BLUETOOTH_CONNECT
+                permission.ACCESS_FINE_LOCATION,
+                permission.BLUETOOTH_SCAN,
+                permission.BLUETOOTH_CONNECT
             )
         } else {
             arrayOf(
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                permission.ACCESS_FINE_LOCATION
             )
         }
     }
 
-
+@RequiresApi(Build.VERSION_CODES.S)
     private fun startLeScanBLEWithPermission(enable: Boolean) {
         if (ActivityCompat.checkSelfPermission(
                 this,
-                Manifest.permission.ACCESS_FINE_LOCATION // si on a bien activé la localisation
+                permission.ACCESS_FINE_LOCATION // si on a bien activé la localisation
             ) == PackageManager.PERMISSION_GRANTED //ok
         ) {
             startLeScanBLE(enable)
         } else {
             ActivityCompat.requestPermissions(
                 this, arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.BLUETOOTH_CONNECT, //connexion (android 12)
-                    Manifest.permission.BLUETOOTH_SCAN //scan (android 12)
+                    permission.ACCESS_FINE_LOCATION,
+                    permission.BLUETOOTH_CONNECT, //connexion (android 12)
+                    permission.BLUETOOTH_SCAN //scan (android 12)
 
                 ), ALL_PERMISSION_REQUEST_CODE
             )
@@ -155,7 +157,7 @@ class BleScanActivity : AppCompatActivity() {
         val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
         if (ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.BLUETOOTH_CONNECT
+                permission.BLUETOOTH_CONNECT
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)

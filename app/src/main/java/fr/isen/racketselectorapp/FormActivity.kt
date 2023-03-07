@@ -11,7 +11,6 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import fr.isen.racketselectorapp.databinding.ActivityFormBinding
 import org.json.JSONObject
-import fr.isen.racketselectorapp.ble.PressureSensor
 
 class FormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFormBinding
@@ -25,8 +24,6 @@ class FormActivity : AppCompatActivity() {
 
         validationClick()
 
-        val psensor = PressureSensor(context)
-        psensor.connectToSensor("")
     }
 
     private fun validationClick() {

@@ -2,6 +2,7 @@ package fr.isen.racketselectorapp.ble
 
 import android.annotation.SuppressLint
 import android.bluetooth.*
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -49,6 +50,8 @@ class DeviceDetailActivity : AppCompatActivity() {
     }
 
     private val gattCallback = object : BluetoothGattCallback() {
+
+
         override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
             super.onConnectionStateChange(gatt, status, newState)
             when (newState) {
@@ -66,6 +69,14 @@ class DeviceDetailActivity : AppCompatActivity() {
 
                 }
             }
+            Log.d(ContentValues.TAG, "onConnectionStateChange done.")
+        }
+
+        override fun onCharacteristicChanged(gatt: BluetoothGatt, characteristic: BluetoothGattCharacteristic) {
+            val pressure = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 0)
+            Log.d(ContentValues.TAG, "Pressure value received: $pressure")
+
+            // Utiliser la valeur de pression récupérée ici
         }
     }
 
