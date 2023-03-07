@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecapActivity">
+    tools:context=".model.RecapActivity">
 
     <TextView
-        style="@style/title"
         android:id="@+id/helloUser"
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/hello"
+        android:text="@string/hello_user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,10 +22,11 @@
 
     <TextView
         android:id="@+id/statisticsAvailableText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/statistics_available"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,11 +49,10 @@
         tools:ignore="ImageContrastCheck" />
 
     <Button
-        style="@style/button"
         android:id="@+id/statisticsButton"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:text="@string/go_to_statistics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

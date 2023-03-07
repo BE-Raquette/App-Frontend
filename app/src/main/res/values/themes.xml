@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.RacketSelectorApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -12,7 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/light_grey</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/light_grey</item>
         <item name="android:navigationBarColor">@color/light_grey</item>
 
         <item name="android:windowLightStatusBar">true</item>
@@ -24,12 +23,15 @@
 
     <style name="title">
         <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="button">
         <item name="cornerRadius">24dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
     </style>
 
     <style name="inputLayout">
@@ -40,8 +42,23 @@
         <item name="android:layout_marginTop">8dp</item>
     </style>
 
+    <style name="progressIndicator">
+        <item name="trackColor">@color/light_grey</item>
+        <item name="indicatorColor">@color/dark_grey</item>
+    </style>
+
+    <style name="statisticsTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <color name="changing_theme">@color/dark_grey</color>
+
+    <!-- verifier utilisation-->
     <color name="changing_logo">@color/dark_grey</color>
     <color name="changing_text">@color/light_grey</color>
-
-
 </resources>
