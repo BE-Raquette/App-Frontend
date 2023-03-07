@@ -10,15 +10,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.racketselectorapp.R
 
-internal class BleScanAdapter(val bleList: ArrayList<ScanResult>, val clickListener: (BluetoothDevice) -> Unit) :
+internal class BleScanAdapter(
+    val bleList: ArrayList<ScanResult>,
+    val clickListener: (BluetoothDevice) -> Unit
+) :
     RecyclerView.Adapter<BleScanAdapter.BLEViewHolder>() {
 
     internal inner class BLEViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var blecircle: TextView = view.findViewById(R.id.circle)
         var bledeviceTextView: TextView = view.findViewById(R.id.deviceTextView)
         var blemacTextView: TextView = view.findViewById(R.id.macTextView)
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BLEViewHolder {
@@ -34,23 +35,23 @@ internal class BleScanAdapter(val bleList: ArrayList<ScanResult>, val clickListe
         holder.blemacTextView.text = result.device.address
         holder.bledeviceTextView.text = result.device.name
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             clickListener(result.device)
         }
     }
 
-    fun addElement(scanResult : ScanResult) {
-        val indexOfResult = bleList.indexOfFirst{
+    fun addElement(scanResult: ScanResult) {
+        val indexOfResult = bleList.indexOfFirst {
             it.device.address == scanResult.device.address
         }
         if (indexOfResult != -1) {
             bleList[indexOfResult] = scanResult
             notifyItemInserted(indexOfResult)
-        }
-        else{
+        } else {
             bleList.add(scanResult)
         }
     }
+
     override fun getItemCount(): Int {
         return bleList.size
     }

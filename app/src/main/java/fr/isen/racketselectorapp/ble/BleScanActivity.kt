@@ -10,10 +10,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,11 +21,9 @@ import fr.isen.racketselectorapp.R
 import fr.isen.racketselectorapp.databinding.ActivityBleScanBinding
 
 class BleScanActivity : AppCompatActivity() {
-    private lateinit var binding: fr.isen.racketselectorapp.databinding.ActivityBleScanBinding
+    private lateinit var binding: ActivityBleScanBinding
 
     private var isScanning = false
-    private val ENABLE_BLUETOOTH_REQUEST_CODE = 1
-    private val ALL_PERMISSION_REQUEST_CODE = 10
     private lateinit var adapter: BleScanAdapter
 
 
@@ -45,7 +43,6 @@ class BleScanActivity : AppCompatActivity() {
             bluetoothAdapter?.isEnabled == true ->
                 binding.scanBLEBtn.setOnClickListener {
                     startLeScanBLEWithPermission(!isScanning)
-                    // startLeScanBLEWithPermission(true)
                 }
 
             bluetoothAdapter != null ->
@@ -97,7 +94,7 @@ class BleScanActivity : AppCompatActivity() {
         }
     }
 
-@RequiresApi(Build.VERSION_CODES.S)
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun startLeScanBLEWithPermission(enable: Boolean) {
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -136,14 +133,16 @@ class BleScanActivity : AppCompatActivity() {
 
 
     private val scanCallBack = object : ScanCallback() {
+        @SuppressLint("MissingPermission")
         override fun onScanResult(callbackType: Int, result: ScanResult) {
-            Log.d("BLEScanActivity", "result : ${result?.device?.address}, rssi : ${result?.rssi}")
+            Log.d("BLEScanActivity", "result : ${result.device?.address}, rssi : ${result.rssi}")
 
-            adapter?.apply {
-                addElement(result)
-                notifyDataSetChanged()
+            if (result.device.name != null) {
+                adapter.apply {
+                    addElement(result)
+                    notifyDataSetChanged()
+                }
             }
-
         }
     }
 
@@ -180,7 +179,7 @@ class BleScanActivity : AppCompatActivity() {
 
     companion object {
         private const val ENABLE_BLUETOOTH_REQUEST_CODE = 1
-        private const val ALL_PEMISSION_REQUEST_CODE = 100
+        private const val ALL_PERMISSION_REQUEST_CODE = 100
         const val DEVICE_KEY = "Device"
     }
 
